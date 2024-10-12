@@ -26,11 +26,16 @@ const Wrapper = styled.div`
 function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [openModal, setOpenModal] = useState({ state: false, project: null });
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   console.log(openModal)
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <Router >
-        <Navbar />
+      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <Body>
           <HeroSection />
           <Wrapper>

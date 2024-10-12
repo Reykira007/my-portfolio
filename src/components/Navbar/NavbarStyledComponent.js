@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import _default from '../../themes/default';
 
 export const Nav = styled.div`
-    background-color: ${({theme}) => theme.card_light};
+    background-color: ${({theme}) => theme.mode === 'light' ? '#FFFFFF' : theme.card_light};
+    box-shadow: ${({theme}) => theme.mode === 'light' ? '0 2px 10px rgba(0, 0, 0, 0.1)' : 'none'};
     height: 80px;
     display: flex;
     align-items: center;
@@ -13,7 +14,7 @@ export const Nav = styled.div`
     top: 0;
     z-index: 10;
     @media (max-width: 960px) {
-        trastion: 0.8s all ease;
+        transition: 0.8s all ease;
     }
 `;
 export const NavbarContainer = styled.div`
@@ -28,6 +29,7 @@ export const NavbarContainer = styled.div`
 `;
 
 export const NavLogo = styled(LinkR)`
+    color: ${({ theme }) => theme.mode === 'light' ? '#333333' : theme.text_primary};
     width: 80%;    
     padding: 0 6px;
     display: flex;
@@ -58,7 +60,7 @@ export const NavItems = styled.ul`
 `;
 
 export const NavLink = styled.a`
-    color: ${({ theme }) => theme.text_primary};
+    color: ${({ theme }) => theme.mode === 'light' ? '#333333' : theme.text_primary};
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
@@ -72,15 +74,14 @@ export const NavLink = styled.a`
     }
 `;
 
-
 export const GitHubButton = styled.a`
-  border: 1.8px solid ${({ theme }) => theme.primary};
+  border: 1.8px solid ${({ theme }) => theme.mode === 'light' ? theme.primary : theme.primary};
   justify-content: center;
   display: flex;
   align-items: center;
   height: 70%;
   border-radius: 20px;
-  color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.mode === 'light' ? theme.primary : theme.primary};
   cursor: pointer;
   padding: 0 20px;
   font-weight: 500;
@@ -89,7 +90,7 @@ export const GitHubButton = styled.a`
   transition: all 0.6s ease-in-out;
     :hover {
       background: ${({ theme }) => theme.primary};
-      color: ${({ theme }) => theme.white};     
+      color: ${({ theme }) => theme.mode === 'light' ? '#FFFFFF' : theme.text_primary};     
     }
     @media screen and (max-width: 768px) { 
     font-size: 14px;
