@@ -113,16 +113,17 @@ export const ButtonContainer = styled.div`
 export const MobileIcon = styled.div`
   display: none;
   @media screen and (max-width: 768px) {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%);
+    display: flex;
+    align-items: center;
     font-size: 1.5rem;
     cursor: pointer;
     color: ${({ theme }) => theme.text_primary};
+
+    & > * {
+      margin-left: 15px;
+    }
   }
-`
+`;
 
 export const MobileMenu = styled.div`
     display: flex;
